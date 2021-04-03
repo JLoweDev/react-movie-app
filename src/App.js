@@ -12,7 +12,6 @@ function App() {
 
   useEffect(() => {
     fetch(FEATURED_API).then((res) => res.json()).then((data) => {
-      console.log(data);
       setMovies(data.results);
     });
   }, [])
@@ -20,7 +19,7 @@ function App() {
   return (
     <div className="App">
       {movies.map((movie) => (
-        <Movie key={movie.id} data={movie}/>
+        <Movie key={movie.id} {...movie}/>
       ))}
     </div>
   );
