@@ -11,6 +11,11 @@ body {
   margin: 0;
 }
 
+header {
+  background-color: #373b69;
+  padding: 1rem;
+}
+
 .movie-container {
   display: flex;
   flex-wrap: wrap;

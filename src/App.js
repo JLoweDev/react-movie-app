@@ -18,6 +18,9 @@ function App() {
 
   return (
     <div className="movie-container">
+      <header>
+        <input className="search" type="text" placeholder="Search"/>
+      </header>
       {movies.map((movie) => (
         <Movie key={movie.id} {...movie}/>
       ))}
