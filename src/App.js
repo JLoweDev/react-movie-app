@@ -12,21 +12,21 @@ function App() {
   const [ searchTerm, setSearchTerm ] = useState('');
 
   useEffect(() => {
-    fetch(FEATURED_API).then((res) => res.json()).then((data) => {
+    getMovies(FEATURED_API);
+  }, [])
+
+  const getMovies = (API) => {
+    fetch(API).then((res) => res.json()).then((data) => {
       setMovies(data.results);
     });
-  }, [])
+  }
 
   const handleOnSubmit = (e) => {
     e.preventDefault();
     console.log(searchTerm);
 
     if (searchTerm) {
-
-      fetch(SEARCH_API + searchTerm).then((res) => res.json()).then((data) => {
-        setMovies(data.results);
-      });
-
+      getMovies(SEARCH_API + searchTerm);
       setSearchTerm('');
   }
 }
